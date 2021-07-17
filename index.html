@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Visitors Count</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="counter">
+
+        <div class="head">Total Website Visit</div>
+        <div class="count">00</div>
+
+    </div>
+    <script>
+      // Creating namespace
+      // https://api.countapi.xyz/create?namespace=Visitors.com&key=Count&value=0
+      //get namespace
+      // https://api.countapi.xyz/get/Visitors.com/Count
+      //update counter
+      // https://api.countapi.xyz/update/Visitors.com/Count/?amount=1
+      function updateCounter() {
+          fetch('https://api.countapi.xyz/update/Visitors.com/Count/?amount=1')
+              .then(res => res.json())
+              .then(data => counterElement.innerHTML = data.value)
+      }
+
+      updateCounter()
+      counterElement = document.getElementsByClassName('count')[0];
+    </script>
+  </body>
+</html>
